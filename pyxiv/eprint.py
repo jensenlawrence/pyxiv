@@ -101,13 +101,14 @@ class ePrint:
                              "expected 'low' or 'high'.")
         
         # All components of summary
+        N_line = 48
         summary_components = (
-            "-"*40 + "\n",
+            "="*N_line + "\n",
             f"arXiv.org e-Print {self.arxiv_id}\n",
-            "-"*40 + "\n",
-            f"Title: {self.title}\n",
-            f"Author(s): {', '.join(self.authors)}\n",
-            f"Abstract: {self.abstract}\n",
+            "="*N_line + "\n",
+            f"Title\n-----\n{self.title}\n\n",
+            f"Author(s)\n---------\n{', '.join(self.authors)}\n\n",
+            f"Abstract\n--------\n{self.abstract}\n\n",
             f"Comment: {self.comment}\n",
             f"Primary category: {self.primary_category}\n",
             f"All categories: {', '.join(self.all_categories)}\n",
