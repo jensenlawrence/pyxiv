@@ -65,6 +65,8 @@ class Search:
         self.max_results = max_results
         self.sort_order  = sort_order
 
+        self.__search_results = self.__search_eprints()
+
     def __str__(self) -> str:
         print_string  = "Search("
         print_string += f"query='{self.query}', "
@@ -229,7 +231,7 @@ class Search:
             troubleshooting is printed.
         """
         # Get e-prints
-        eprints   = self.__search_eprints()
+        eprints   = self.__search_results
         N_eprints = len(eprints)
 
         # List e-prints
@@ -267,7 +269,7 @@ class Search:
             troubleshooting is printed.
         """
         # Get e-prints
-        eprints   = self.__search_eprints()
+        eprints   = self.__search_results
         N_eprints = len(eprints)
 
         # Download e-prints
