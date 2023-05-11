@@ -243,7 +243,7 @@ class Search:
                 results_string += eprint.summary(detail=detail)
                 # Add line skip to each non-final summary
                 if i != N_eprints - 1:
-                    results_string += "\n"
+                    results_string += "\n\n"
             return results_string
         
         # Troubleshooting suggestions if no e-prints found
