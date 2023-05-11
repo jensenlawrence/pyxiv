@@ -33,9 +33,9 @@ def keyword_query(keywords: list[str], field_type: str = "all",
         the arXiv API.
     """
     # Validate keywords input
-    is_list   = bool(keywords)
+    is_list   = isinstance(keywords, list)
     is_string = all(isinstance(word, str) for word in keywords)
-    if not (is_list and is_string):
+    if (not is_list)  or (not is_string):
         raise ValueError("invalid input for `keywords`, "
                          "expected list of str.")
     
