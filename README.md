@@ -7,7 +7,7 @@
 This library is currently not on PyPI, but can be cloned directly from GitHub. This library has two external dependencies: [requests](https://requests.readthedocs.io/en/latest/) and [feedparser](https://feedparser.readthedocs.io/en/latest/); all other dependencies are part of the Python Standard Library.
 
 ## Usage
-Tutorials on how to use `pyxiv` can be found in [usage](https://github.com/jensen-lawrence/pyxiv/tree/main/examples). A basic example, though, is the following:
+Tutorials on how to use `pyxiv` can be found in [examples](https://github.com/jensen-lawrence/pyxiv/tree/main/examples). A basic example, though, is the following:
 ```python
 from pyxiv import Search
 
