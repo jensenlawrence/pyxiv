@@ -115,14 +115,7 @@ class Search:
         
         if end_date > date.today():
             raise ValueError("invalid input for `end_date`, "
-                             "cannot be a date in the future.")
-        
-        yesterday = date.today() - timedelta(days=1)
-        if start_date < yesterday:
-            print("Note: a value of `start_date` earlier than yesterday has "
-                  "been used. It may be necessary to increase `max_results` "
-                  "to ensure the query searches sufficiently far back in time. "
-                  "The maximum permitted value of `max_results` is 30,000.")
+                             "cannot be a date in the future.") 
             
         return start_date, end_date
     
@@ -192,6 +185,15 @@ class Search:
         query_time = time() - t0
         print(f"Results acquired in {elapsed_time(query_time)}.")
 
+        # Check if search maxes out
+        N_eprints = len(eprints)
+        if N_eprints == self.max_results:
+            print("Note: the number of e-prints returned by the search is "
+                  "equal to the maximum search depth. This indicates that "
+                  "the search likely terminated before finding all results "
+                  "that match the given query. Consider increasing the value "
+                  "of `max_results`.")
+
         return eprints[::-1]
 
     def __no_results(self) -> None:
@@ -244,6 +246,7 @@ class Search:
                 # Add line skip to each non-final summary
                 if i != N_eprints - 1:
                     results_string += "\n\n"
+
             return results_string
         
         # Troubleshooting suggestions if no e-prints found
